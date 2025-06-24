@@ -1,4 +1,4 @@
-🔐 Como o Hirunlocker funciona na prática
+# 🔐 Como o Hirunlocker funciona na prática
 O Hirunlocker realiza ataque de força bruta para recuperar senhas de arquivos .7z, com escalonamento inteligente de tentativas.
 
 Charset usado: abcdefghijklmnopqrstuvwxyz0123456789!@#$% (40 caracteres)
@@ -7,7 +7,7 @@ Suporte a até ProcessorCount * 8 threads, com fallback automático para a CPU
 Taxa real de verificação: ~2.777 tentativas/segundo (com base em benchmark real)
 Otimizado para velocidade e controle manual de carga
 
-⏱️ Estimativa de tempo (exemplo com CPU):
+# ⏱️ Estimativa de tempo (exemplo com CPU):
 Senha de 4 caracteres → ~15 minutos
 Senha de 5 → ~10 horas
 Senha de 6 → ~17 dias
@@ -15,7 +15,7 @@ Senha de 10 → ~119.000 anos (inviável sem GPU)
 
 O Hirunlocker será adaptado para usar GPUs via OpenCL com fallback para CPU, mas uso de GPU só torna viável até ~7-8 caracteres
 
-✅ Estimativa de tempo para todos tamanhos de senha em base ao Ryzen 7 7800X3D (8/16). 
+# ✅ Estimativa de tempo para todos tamanhos de senha em base ao Ryzen 7 7800X3D (8/16). 
 Charset: 40 caracteres | 2777/s
 A média por caracteres na senha de 1 a 10 caracteres:
 
@@ -33,7 +33,7 @@ A média por caracteres na senha de 1 a 10 caracteres:
 |      10 | 10.485.760.000.000.000 | \~119 mil anos            |
 
 
-⏱️ TEMPO ESTIMADO PARA 10 CARACTERES (40¹⁰)
+# ⏱️ TEMPO ESTIMADO PARA 10 CARACTERES (40¹⁰)
 | GPU                     | Est. Desempenho Realista (tentativas/s) | Estimativa de Tempo (completo) |
 | ----------------------- | --------------------------------------- | -----------------------------: |
 | **RTX 3060**            | \~600 mil/s                             |                     \~202 anos |
@@ -46,10 +46,10 @@ A média por caracteres na senha de 1 a 10 caracteres:
 | **RX 7900 XTX**         | \~8.000 mil/s                           |                      \~41 anos |
 | **RX 9070 XT** (prev.)  | \~11 milhões/s                          |                      \~30 anos |
 
-⚡ Suporte a GPU:
+# ⚡ Suporte a GPU:
 Drivers atualizados com suporte a OpenCL 1.2 ou superior
 
-NVIDIA (OpenCL) – compatível com:
+# NVIDIA (OpenCL) – compatível com:
 - GTX 10xx (1050, 1060, 1070, 1080)
 - GTX 16xx (1650, 1660 Super, etc.)
 - RTX 20xx (2060, 2070, 2080)
@@ -58,7 +58,7 @@ NVIDIA (OpenCL) – compatível com:
 - RTX 50xx (5060, 5070, 5090) – estimado compatível
 - Quadro e Tesla modernos
 
-AMD (OpenCL) – compatível com:
+# AMD (OpenCL) – compatível com:
 - RX 500 (550, 560, 570, 580)
 - RX 5000 (5500 XT, 5600 XT, 5700 XT)
 - RX 6000 (6600 XT, 6700 XT, 6800, 6900 XT)
@@ -66,11 +66,11 @@ AMD (OpenCL) – compatível com:
 - RX 9000 (9070 XT) – estimado compatível
 - Vega, Fury, Radeon VII
 
-Intel (OpenCL) – compatível com:
+# Intel (OpenCL) – compatível com:
 - Intel Iris Xe, UHD integradas modernas (desempenho limitado)
 - Intel Arc A380, A750, A770
 
-🟡 CUDA (via ManagedCUDA)
+# 🟡 CUDA (via ManagedCUDA)
 Somente NVIDIA com CUDA Compute Capability ≥ 3.0
 Placas com driver atualizado e suporte a CUDA Toolkit 10–12
 Compatível com CUDA:
@@ -79,13 +79,13 @@ Compatível com CUDA:
 - RTX 20xx, 30xx, 40xx, 50xx
 - Tesla/Quadro com suporte a CUDA
 
-⚠️ Modelos não suportados (ou problemáticos)
+# ⚠️ Modelos não suportados (ou problemáticos)
 GPUs muito antigas / china: GTX 400, 500, AMD HD 6000/7000, RX 400, 500, etc.
 GPUs com OpenCL 1.0/1.1 apenas (muito limitadas)
 iGPUs da Intel anteriores a 2021 → suporte fraco
 GPUs em ambientes com drivers genéricos (ex: Windows sem driver dedicado)
 
-📌 Detecção Automática (modo Auto)
+# 📌 Detecção Automática (modo Auto)
 No modo “Auto”, o Hirunlocker:
 Tenta detectar CUDA primeiro (NVIDIA)
 Se falhar, tenta OpenCL (Todos modelos de GPU)
